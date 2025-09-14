@@ -235,9 +235,9 @@ While Big O notation formally describes the worst-case upper bound, a complete a
 
   * **Average Case ($\\Theta$):** The expected performance over a random distribution of inputs. For Insertion Sort, this is also $O(n^2)$. In interviews, unless specified otherwise, you should analyze the worst-case complexity.
 
-  * **Amortized Analysis:** This technique is used when a sequence of operations contains occasional, very expensive operations whose costs can be "spread out" or "amortized" over the entire sequence. It provides a more realistic performance measure for data structures where costly re-organization events are preceded by many cheap operations.[79, 80]
+  * **Amortized Analysis:** This technique is used when a sequence of operations contains occasional, very expensive operations whose costs can be "spread out" or "amortized" over the entire sequence. It provides a more realistic performance measure for data structures where costly re-organization events are preceded by many cheap operations.
 
-      * **Example: Dynamic Array (e.g., Python list, Java ArrayList):** Appending an element is usually an $O(1)$ operation. However, when the underlying array is full, a new, larger array must be allocated, and all existing elements must be copied over. This resize operation is $O(n)$. If we simply double the array size each time it fills, the expensive $O(n)$ copy happens infrequently. The cost of this resize can be distributed across the previous cheap $O(1)$ appends. The result is that the **amortized time complexity** of appending an element is $O(1)$.[22, 81, 82]
+      * **Example: Dynamic Array (e.g., Python list, Java ArrayList):** Appending an element is usually an $O(1)$ operation. However, when the underlying array is full, a new, larger array must be allocated, and all existing elements must be copied over. This resize operation is $O(n)$. If we simply double the array size each time it fills, the expensive $O(n)$ copy happens infrequently. The cost of this resize can be distributed across the previous cheap $O(1)$ appends. The result is that the **amortized time complexity** of appending an element is $O(1)$.
 
 ### 4.2 Special Cases: When `n` Isn't the Whole Story
 
@@ -249,14 +249,14 @@ Complexity is not always a simple function of the primary input size $n$. It can
         1.  Iterate through the string to identify and extract all $k$ vowels: $O(n)$.
         2.  Sort the collection of $k$ vowels: $O(k \\log k)$.
         3.  Iterate through the string again, placing the sorted vowels back into their original positions: $O(n)$.
-            The total time complexity is the sum of these steps: $O(n + k \\log k)$. Since $k \\le n$, the worst-case complexity (when all characters are vowels) is $O(n \\log n)$.[83] This analysis is more precise than simply stating $O(n \\log n)$, as it correctly identifies the dependency on the subset size $k$.
-      * **Example: Iterating over Prime Numbers:** Consider an algorithm that iterates through all prime numbers up to a given integer $n$. The number of primes less than or equal to $n$, denoted $\\pi(n)$, is approximately $n / \\ln(n)$. The complexity of such a loop depends on this prime number density, not directly on $n$. If, inside the loop, a primality test is performed on each number up to $p$, which takes $O(\\sqrt{p})$ time, the analysis becomes even more complex.[84, 85, 86]
+            The total time complexity is the sum of these steps: $O(n + k \\log k)$. Since $k \\le n$, the worst-case complexity (when all characters are vowels) is $O(n \\log n)$. This analysis is more precise than simply stating $O(n \\log n)$, as it correctly identifies the dependency on the subset size $k$.
+      * **Example: Iterating over Prime Numbers:** Consider an algorithm that iterates through all prime numbers up to a given integer $n$. The number of primes less than or equal to $n$, denoted $\\pi(n)$, is approximately $n / \\ln(n)$. The complexity of such a loop depends on this prime number density, not directly on $n$. If, inside the loop, a primality test is performed on each number up to $p$, which takes $O(\\sqrt{p})$ time, the analysis becomes even more complex.
 
   * **Multiple, Independent Inputs:** When an algorithm takes multiple inputs, for example, two arrays of sizes $n$ and $m$, the complexity must be expressed in terms of all relevant variables.
 
       * If the algorithm involves two separate, sequential loops, one over each array, the complexity is additive: $O(n + m)$.
       * If the loops are nested (one for each array), the complexity is multiplicative: $O(n \\cdot m)$.
-        It is a common mistake to simplify this to $O(n^2)$ without knowing the relationship between $n$ and $m$. If $m$ is significantly smaller or larger than $n$, $O(n \\cdot m)$ is the only correct representation.[35]
+        It is a common mistake to simplify this to $O(n^2)$ without knowing the relationship between $n$ and $m$. If $m$ is significantly smaller or larger than $n$, $O(n \\cdot m)$ is the only correct representation.
 
 ## Section 5: Practical Application and Mental Models
 
@@ -264,9 +264,9 @@ Applying theoretical knowledge under pressure requires a structured approach. Th
 
 ### 5.1 A 5-Step Mental Checklist for Time Complexity Analysis
 
-When faced with a new algorithm in a coding interview or competition, follow these steps to systematically determine its time complexity [1, 5, 37, 87]:
+When faced with a new algorithm in a coding interview or competition, follow these steps to systematically determine its time complexity:
 
-1.  **Identify Input Variables:** First, determine what constitutes the "input size." Is it a single number $n$? The length of an array? Are there multiple inputs, like $n$ and $m$? Clearly defining your variables is the foundation of a correct analysis.[88]
+1.  **Identify Input Variables:** First, determine what constitutes the "input size." Is it a single number $n$? The length of an array? Are there multiple inputs, like $n$ and $m$? Clearly defining your variables is the foundation of a correct analysis.
 2.  **Trace the Outermost Structure:** Analyze the code from the outside in. Identify the main loops or the initial recursive call. This establishes the primary driver of the complexity. For example, a single loop iterating from 0 to $n-1$ immediately suggests a base of at least $O(n)$.
 3.  **Analyze Work Inside Loops/Functions:** For each iteration of a loop or each function call, determine the complexity of the work being done. Is it a constant-time operation ($O(1)$)? Does it involve another loop or a function call whose complexity depends on the current state (e.g., a nested loop running up to `i`)?
 4.  **Handle Recursion Systematically:** If the algorithm is recursive, do not guess. Write down the recurrence relation.
@@ -304,7 +304,7 @@ Let's apply this framework to several tricky problems.
         2.  **Outermost Structure:** A `for` loop from $i=0$ to $n-1$.
         3.  **Work Inside:** A nested `for` loop from $j=i+1$ to $n-1$. This is a dependent loop.
         4.  **Recursion:** None.
-        5.  **Combine:** The number of inner loop iterations is $(n-1) + (n-2) + \\dots + 1 = \\frac{(n-1)n}{2}$. This is $O(n^2)$.[41]
+        5.  **Combine:** The number of inner loop iterations is $(n-1) + (n-2) + \\dots + 1 = \\frac{(n-1)n}{2}$. This is $O(n^2)$.
       * **Complexity:** $O(n^2)$.
 
   * **Optimized Approach (Using a Hash Set):**
@@ -328,7 +328,7 @@ Let's apply this framework to several tricky problems.
       * **Analysis:**
         1.  **Input:** An array of size $n$.
         2.  **Outermost Structure:** A single `for` loop that iterates through all $n$ elements.
-        3.  **Work Inside:** The operations `seen.contains()` and `seen.add()` on a `HashSet` are, on average, $O(1)$.[67]
+        3.  **Work Inside:** The operations `seen.contains()` and `seen.add()` on a `HashSet` are, on average, $O(1)$.
         4.  **Recursion:** None.
         5.  **Combine:** The loop runs $n$ times, and the work inside is $O(1)$. Total time is $n \\times O(1) = O(n)$.
       * **Complexity:** $O(n)$. This demonstrates how choosing the right data structure can dramatically improve time complexity.
@@ -351,7 +351,7 @@ Let's apply this framework to several tricky problems.
         2.  **Outermost Structure:** A recursive function.
         3.  **Work Inside:** A constant number of additions and comparisons.
         4.  **Recursion:** The recurrence relation is $T(n) = T(n-1) + T(n-2) + O(1)$.
-        5.  **Combine:** Drawing the recursion tree reveals that many subproblems (e.g., `fib(2)`) are computed multiple times. The number of nodes in the tree grows exponentially. The complexity is approximately $O(2^n)$.[30, 90]
+        5.  **Combine:** Drawing the recursion tree reveals that many subproblems (e.g., `fib(2)`) are computed multiple times. The number of nodes in the tree grows exponentially. The complexity is approximately $O(2^n)$.
       * **Complexity:** $O(2^n)$.
 
   * **Optimized Approach (Memoization / Top-Down Dynamic Programming):**
@@ -377,7 +377,7 @@ Let's apply this framework to several tricky problems.
         3.  **Work Inside:** Hash map lookups, insertions, and additions, all of which are $O(1)$.
         4.  **Recursion:** The key difference is the memoization check. The function `fibMemo(k)` is only computed *once* for each value of $k$ from 0 to $n$. After the first computation, the result is stored and retrieved in $O(1)$ time.
         5.  **Combine:** The function is called for $n, n-1, n-2, \\dots, 1$. Each call performs $O(1)$ work before returning a cached or newly computed value. The total number of computations is therefore linear.
-      * **Complexity:** $O(n)$. The space complexity is also $O(n)$ to store the memoization table.[91, 92]
+      * **Complexity:** $O(n)$. The space complexity is also $O(n)$ to store the memoization table.
 
 #### 3\. Generating All Subsets (Power Set)
 
@@ -411,18 +411,18 @@ Mastering complexity analysis also involves developing an intuition for performa
 
   * **Identify the Highest Order Term:** In any algorithm, the part with the highest growth rate will dominate the runtime for large inputs. An $O(n^2)$ nested loop will always be the bottleneck over a subsequent $O(n)$ loop. Focus your optimization efforts there.
   * **Analyze Work per Element:** For each element in your input, how much work are you doing? If you iterate through an array ($O(n)$) and for each element, you perform a search in another array ($O(m)$), your total work is $O(n \\cdot m)$. If this work is more than constant or logarithmic, it's a potential bottleneck.
-  * **Use Profilers for Real-World Code:** While theoretical analysis is key for interviews, in a professional setting, use profiling tools (like `cProfile` in Python or `JProfiler` for Java) to measure the actual runtime of different parts of your code. This will definitively identify "hot spots" that are consuming the most time.[96, 97, 98]
+  * **Use Profilers for Real-World Code:** While theoretical analysis is key for interviews, in a professional setting, use profiling tools (like `cProfile` in Python or `JProfiler` for Java) to measure the actual runtime of different parts of your code. This will definitively identify "hot spots" that are consuming the most time.
 
 ### 6.2 Common Pitfalls to Avoid
 
   * **Ignoring the Cost of Library Functions:** A frequent mistake is assuming that built-in functions are free. Operations like `list.insert(0, val)` in Python, `ArrayList.add(0, val)` in Java, or `substr` in some string implementations are often $O(n)$ because they may require shifting all subsequent elements.[22] Similarly, checking for an element's existence in a list (`val in my_list`) is $O(n)$, while in a hash set (`val in my_set`) it is $O(1)$ on average. Always know the complexity of the tools you use.
-  * **Mistaking the Input Variable:** Be precise about what $n$ represents. In graph problems, complexity is often expressed in terms of vertices ($V$) and edges ($E$), e.g., $O(V+E)$. In string problems, you might have two strings of different lengths, $n$ and $m$. Don't incorrectly simplify $O(n \\cdot m)$ to $O(n^2)$.[88]
-  * **Constants and Small `n`:** Big O notation ignores constant factors. An algorithm that is $O(n)$ might be $1000n$, while an $O(n^2)$ algorithm might be $\\frac{1}{2}n^2$. For small values of $n$, the $O(n^2)$ algorithm could actually be faster. Big O is about **asymptotic** behavior, i.e., how the algorithm performs as $n$ approaches infinity.[99]
-  * **Best/Average vs. Worst Case:** Don't assume an algorithm will always perform at its average-case complexity. While Quicksort is typically $O(n \\log n)$, an interviewer might specifically ask about the worst-case scenario (a sorted input) to test your knowledge of its $O(n^2)$ degradation. Always clarify which case you are analyzing.[88]
+  * **Mistaking the Input Variable:** Be precise about what $n$ represents. In graph problems, complexity is often expressed in terms of vertices ($V$) and edges ($E$), e.g., $O(V+E)$. In string problems, you might have two strings of different lengths, $n$ and $m$. Don't incorrectly simplify $O(n \\cdot m)$ to $O(n^2)$.
+  * **Constants and Small `n`:** Big O notation ignores constant factors. An algorithm that is $O(n)$ might be $1000n$, while an $O(n^2)$ algorithm might be $\\frac{1}{2}n^2$. For small values of $n$, the $O(n^2)$ algorithm could actually be faster. Big O is about **asymptotic** behavior, i.e., how the algorithm performs as $n$ approaches infinity.
+  * **Best/Average vs. Worst Case:** Don't assume an algorithm will always perform at its average-case complexity. While Quicksort is typically $O(n \\log n)$, an interviewer might specifically ask about the worst-case scenario (a sorted input) to test your knowledge of its $O(n^2)$ degradation. Always clarify which case you are analyzing.
 
 ## Section 7: Visualizing Complexity Growth
 
-To build a strong intuition for time complexity, it is helpful to visualize how the number of operations grows for different complexity classes as the input size $n$ increases. The following ASCII chart illustrates this relationship, showing the dramatic difference in scalability between efficient and inefficient algorithms.[100]
+To build a strong intuition for time complexity, it is helpful to visualize how the number of operations grows for different complexity classes as the input size $n$ increases. The following ASCII chart illustrates this relationship, showing the dramatic difference in scalability between efficient and inefficient algorithms.
 
 
 ![Big O Cheat Sheet](big-o-cheat-sheet-poster.png)
