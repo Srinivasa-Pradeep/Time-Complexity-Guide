@@ -15,15 +15,15 @@ Instead, time complexity provides a hardware-agnostic, theoretical framework for
 To formally describe the relationship between an algorithm's operation count and its input size, computer scientists use a set of mathematical tools called asymptotic notations. These notations describe the limiting behavior of a function as the input size tends towards infinity.
 
   * **Big O ($O$): The Upper Bound (Worst Case)**
-    Big O notation is the most prevalent in the field because it describes the **worst-case scenario**. It provides an upper bound on an algorithm's runtime, guaranteeing that its performance will not exceed a certain level.[5, 9, 10] Formally, a function $f(n)$ is said to be in $O(g(n))$ if there exist positive constants $c$ and $n\_0$ such that $0 \\le f(n) \\le c \\cdot g(n)$ for all $n \\ge n\_0$.[9, 11] In essence, for a sufficiently large input size $n$, the function $f(n)$ will grow no faster than a constant multiple of $g(n)$.
+    Big O notation is the most prevalent in the field because it describes the **worst-case scenario**. It provides an upper bound on an algorithm's runtime, guaranteeing that its performance will not exceed a certain level. Formally, a function $f(n)$ is said to be in $O(g(n))$ if there exist positive constants $c$ and $n\_0$ such that $0 \\le f(n) \\le c \\cdot g(n)$ for all $n \\ge n\_0$. In essence, for a sufficiently large input size $n$, the function $f(n)$ will grow no faster than a constant multiple of $g(n)$.
 
   * **Big Omega ($\\Omega$): The Lower Bound (Best Case)**
-    Big Omega provides the opposite guarantee: it describes the **best-case scenario**. It sets a lower bound on an algorithm's runtime, meaning the algorithm will take at least this amount of time.[5, 10, 12]
+    Big Omega provides the opposite guarantee: it describes the **best-case scenario**. It sets a lower bound on an algorithm's runtime, meaning the algorithm will take at least this amount of time.
 
   * **Big Theta ($\\Theta$): The Tight Bound (Average Case)**
-    Big Theta is used when an algorithm's runtime is bounded both from above and below by the same function. It provides a tight bound, often representing the **average-case** or expected performance.[5, 10, 12]
+    Big Theta is used when an algorithm's runtime is bounded both from above and below by the same function. It provides a tight bound, often representing the **average-case** or expected performance.
 
-While these distinctions are academically important, in practical settings like coding interviews, the term "Big O" is often used colloquially to refer to the tight bound (Theta) of an algorithm's typical or average-case performance.[13] For example, Quicksort has a strict worst-case time complexity of $O(n^2)$, but this scenario is rare in practice. Its average-case performance is $\\Theta(n \\log n)$, and it is almost universally referred to as an "$O(n \\log n)$" algorithm.[4, 14] This guide will follow this common convention, using $O$ notation to describe the tightest, most practical bound for an algorithm.
+While these distinctions are academically important, in practical settings like coding interviews, the term "Big O" is often used colloquially to refer to the tight bound (Theta) of an algorithm's typical or average-case performance. For example, Quicksort has a strict worst-case time complexity of $O(n^2)$, but this scenario is rare in practice. Its average-case performance is $\\Theta(n \\log n)$, and it is almost universally referred to as an "$O(n \\log n)$" algorithm. This guide will follow this common convention, using $O$ notation to describe the tightest, most practical bound for an algorithm.
 
 ### 1.3 A Tour of Common Complexity Classes
 
