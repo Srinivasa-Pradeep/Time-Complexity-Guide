@@ -44,7 +44,7 @@ Algorithms are categorized into classes based on their Big O complexity. Underst
  
 
   * **$O(\\log n)$ - Logarithmic Time**
-    This complexity is a hallmark of highly efficient algorithms. It typically arises when the algorithm reduces the size of the input by a constant factor (usually half) at each step.[3] Binary search is the canonical example.[15, 18] The reason is that if you repeatedly divide $n$ by 2 until you reach 1, you will have performed $\\log\_2 n$ divisions.[19, 20]
+    This complexity is a hallmark of highly efficient algorithms. It typically arises when the algorithm reduces the size of the input by a constant factor (usually half) at each step. Binary search is the canonical example. The reason is that if you repeatedly divide $n$ by 2 until you reach 1, you will have performed $\\log\_2 n$ divisions.
 
       * **Examples:** Binary search on a sorted array, finding an element in a balanced binary search tree, and Euclid's algorithm for GCD.
 
@@ -61,9 +61,9 @@ Algorithms are categorized into classes based on their Big O complexity. Underst
     ```
 
   * **$O(n)$ - Linear Time**
-    The runtime grows in direct proportion to the input size $n$. If the input size doubles, the runtime roughly doubles. This is common for algorithms that need to process each element of the input at least once.[15, 21, 22]
+    The runtime grows in direct proportion to the input size $n$. If the input size doubles, the runtime roughly doubles. This is common for algorithms that need to process each element of the input at least once.
 
-      * **Examples:** Iterating through an array or list with a single loop, finding the maximum element in an unsorted array, and linear search.[5, 17]
+      * **Examples:** Iterating through an array or list with a single loop, finding the maximum element in an unsorted array, and linear search.
 
     <!-- end list -->
 
@@ -79,14 +79,14 @@ Algorithms are categorized into classes based on their Big O complexity. Underst
     ```
 
   * **$O(n \\log n)$ - Linearithmic Time**
-    This complexity is often found in efficient sorting algorithms. It can be conceptualized as performing an $O(\\log n)$ operation for each of the $n$ items. More commonly, it arises from divide-and-conquer algorithms that break a problem into subproblems, do $O(n)$ work to combine the results, and have a recursion depth of $O(\\log n)$.[4, 15, 23]
+    This complexity is often found in efficient sorting algorithms. It can be conceptualized as performing an $O(\\log n)$ operation for each of the $n$ items. More commonly, it arises from divide-and-conquer algorithms that break a problem into subproblems, do $O(n)$ work to combine the results, and have a recursion depth of $O(\\log n)$.
 
-      * **Examples:** Merge Sort, Heapsort, and the average case of Quicksort.[5, 16, 24]
+      * **Examples:** Merge Sort, Heapsort, and the average case of Quicksort.
 
   * **$O(n^2)$ - Quadratic Time**
-    The runtime is proportional to the square of the input size. This complexity class is often associated with algorithms that process all pairs of elements in an input set, typically through nested loops.[25, 26, 27]
+    The runtime is proportional to the square of the input size. This complexity class is often associated with algorithms that process all pairs of elements in an input set, typically through nested loops.
 
-      * **Examples:** Simple sorting algorithms like Bubble Sort, Insertion Sort, and Selection Sort; iterating through a 2D matrix of size $n \\times n$.[28, 29]
+      * **Examples:** Simple sorting algorithms like Bubble Sort, Insertion Sort, and Selection Sort; iterating through a 2D matrix of size $n \\times n$.
 
     <!-- end list -->
 
@@ -103,17 +103,17 @@ Algorithms are categorized into classes based on their Big O complexity. Underst
     ```
 
   * **$O(2^n)$ - Exponential Time**
-    An algorithm with this complexity doubles its runtime with each single addition to the input set. These algorithms are typically impractical for anything but very small input sizes. They often arise from brute-force solutions that explore all possible subsets of the input.[30, 31]
+    An algorithm with this complexity doubles its runtime with each single addition to the input set. These algorithms are typically impractical for anything but very small input sizes. They often arise from brute-force solutions that explore all possible subsets of the input.
 
-      * **Examples:** Recursive calculation of Fibonacci numbers without memoization, finding all subsets of a set (the power set).[5, 32]
+      * **Examples:** Recursive calculation of Fibonacci numbers without memoization, finding all subsets of a set (the power set).
 
   * **$O(n\!)$ - Factorial Time**
     This is one of the worst-performing complexity classes. The runtime grows factorially with the input size. Such algorithms are only feasible for extremely small values of $n$.
 
-      * **Examples:** Brute-force solution to the Traveling Salesman Problem, generating all permutations of a set.[26, 33]
+      * **Examples:** Brute-force solution to the Traveling Salesman Problem, generating all permutations of a set.
 
   * **$O(k)$ - Parameterized Complexity**
-    Sometimes, an algorithm's runtime depends on a parameter that is not the primary input size $n$. This parameter is often denoted by $k$. If $k$ is a fixed constant, then $O(k)$ simplifies to $O(1)$. However, if $k$ is a variable that can grow, it must be included in the complexity analysis, leading to complexities like $O(n+k)$ or $O(n \\cdot k)$.[34, 35]
+    Sometimes, an algorithm's runtime depends on a parameter that is not the primary input size $n$. This parameter is often denoted by $k$. If $k$ is a fixed constant, then $O(k)$ simplifies to $O(1)$. However, if $k$ is a variable that can grow, it must be included in the complexity analysis, leading to complexities like $O(n+k)$ or $O(n \\cdot k)$.
 
 | Big O Notation | Name | Growth with $n$ | Example Algorithm |
 | :--- | :--- | :--- | :--- |
@@ -131,22 +131,22 @@ Analyzing the time complexity of a piece of code can be broken down into a syste
 
 ### 2.1 Analyzing Basic Constructs
 
-  * **Sequential Statements:** When a block of code consists of a sequence of statements executed one after another, its total time complexity is the sum of the complexities of each individual statement. In asymptotic analysis, we only care about the dominant term. For example, if a function performs an $O(n)$ operation followed by an $O(n^2)$ operation, the total complexity is $O(n) + O(n^2) = O(n^2)$, because the quadratic term grows much faster and dominates the linear term for large $n$.[11, 36, 37]
-  * **Conditional Statements (if-else):** For an `if-else` block, the time complexity is the complexity of the condition check plus the complexity of the more expensive of the two branches. We always consider the worst-case path. So, the complexity is $T\_{condition} + \\max(T\_{if\_block}, T\_{else\_block})$.[36, 37]
+  * **Sequential Statements:** When a block of code consists of a sequence of statements executed one after another, its total time complexity is the sum of the complexities of each individual statement. In asymptotic analysis, we only care about the dominant term. For example, if a function performs an $O(n)$ operation followed by an $O(n^2)$ operation, the total complexity is $O(n) + O(n^2) = O(n^2)$, because the quadratic term grows much faster and dominates the linear term for large $n$.
+  * **Conditional Statements (if-else):** For an `if-else` block, the time complexity is the complexity of the condition check plus the complexity of the more expensive of the two branches. We always consider the worst-case path. So, the complexity is $T\_{condition} + \\max(T\_{if\_block}, T\_{else\_block})$.
 
 ### 2.2 Analyzing Iterative Structures (Loops)
 
-The time complexity of a loop is determined by multiplying the number of times the loop iterates by the time complexity of the code inside the loop's body.[37, 38]
+The time complexity of a loop is determined by multiplying the number of times the loop iterates by the time complexity of the code inside the loop's body.
 
-  * **Linear Loops:** A loop where the control variable is incremented or decremented by a constant value will run a number of times proportional to the input size. If a loop runs from 0 to $n-1$, it performs $n$ iterations. If the body of the loop takes $O(1)$ time, the entire loop's complexity is $n \\times O(1) = O(n)$.[39]
-  * **Logarithmic Loops:** A loop is logarithmic if its control variable is multiplied or divided by a constant factor in each iteration. For example, `for (int i = 1; i < n; i *= 2)` will execute $\\log\_2 n$ times, because that's how many times you can multiply 1 by 2 before it exceeds $n$. If the loop body is $O(1)$, the total complexity is $O(\\log n)$.[17, 40]
+  * **Linear Loops:** A loop where the control variable is incremented or decremented by a constant value will run a number of times proportional to the input size. If a loop runs from 0 to $n-1$, it performs $n$ iterations. If the body of the loop takes $O(1)$ time, the entire loop's complexity is $n \\times O(1) = O(n)$.
+  * **Logarithmic Loops:** A loop is logarithmic if its control variable is multiplied or divided by a constant factor in each iteration. For example, `for (int i = 1; i < n; i *= 2)` will execute $\\log\_2 n$ times, because that's how many times you can multiply 1 by 2 before it exceeds $n$. If the loop body is $O(1)$, the total complexity is $O(\\log n)$.
   * **Nested Loops:**
       * **Independent Loops:** When one loop is nested inside another and the iteration counts are independent, their complexities are multiplied. A loop running $n$ times containing a loop that runs $m$ times results in a total complexity of $O(n \\cdot m)$.[36, 38] If both loops run $n$ times, the complexity is $O(n^2)$.
-      * **Dependent Loops:** A common pattern is a nested loop where the inner loop's iteration count depends on the outer loop's variable, such as `for (int i = 0; i < n; i++) { for (int j = 0; j < i; j++) {... } }`. In this case, the inner loop executes 0 times for $i=0$, 1 time for $i=1$, 2 times for $i=2$, and so on, up to $n-1$ times. The total number of operations is the sum of an arithmetic series: $0 + 1 + 2 + \\dots + (n-1) = \\frac{(n-1)n}{2} = \\frac{n^2 - n}{2}$. In Big O notation, we drop constants and lower-order terms, so the complexity is $O(n^2)$.[41, 42, 43]
+      * **Dependent Loops:** A common pattern is a nested loop where the inner loop's iteration count depends on the outer loop's variable, such as `for (int i = 0; i < n; i++) { for (int j = 0; j < i; j++) {... } }`. In this case, the inner loop executes 0 times for $i=0$, 1 time for $i=1$, 2 times for $i=2$, and so on, up to $n-1$ times. The total number of operations is the sum of an arithmetic series: $0 + 1 + 2 + \\dots + (n-1) = \\frac{(n-1)n}{2} = \\frac{n^2 - n}{2}$. In Big O notation, we drop constants and lower-order terms, so the complexity is $O(n^2)$.
 
 ### 2.3 Analyzing Recursive Structures
 
-The analysis of recursive algorithms begins with formulating a **recurrence relation**, a mathematical equation that expresses the algorithm's time complexity, $T(n)$, in terms of its performance on smaller inputs.[44, 45]
+The analysis of recursive algorithms begins with formulating a **recurrence relation**, a mathematical equation that expresses the algorithm's time complexity, $T(n)$, in terms of its performance on smaller inputs.
 
 For example, the Merge Sort algorithm works by:
 
@@ -154,23 +154,23 @@ For example, the Merge Sort algorithm works by:
 2.  Recursively sorting the two halves. (Time: $2 \\cdot T(n/2)$)
 3.  Merging the two sorted halves. (Time: $O(n)$)
 
-This leads to the recurrence relation: $T(n) = 2T(n/2) + O(n)$.[44, 45] Once the recurrence is established, it can be solved using several methods.
+This leads to the recurrence relation: $T(n) = 2T(n/2) + O(n)$. Once the recurrence is established, it can be solved using several methods.
 
   * **Solving Recurrences: The Recursion Tree Method**
-    This is an intuitive, visual method for solving recurrences. We draw a tree representing the recursive calls, where each node is labeled with the cost of the work done at that step (excluding the recursive calls themselves). The total time complexity is the sum of the costs of all nodes in the tree.[44, 46]
+    This is an intuitive, visual method for solving recurrences. We draw a tree representing the recursive calls, where each node is labeled with the cost of the work done at that step (excluding the recursive calls themselves). The total time complexity is the sum of the costs of all nodes in the tree.
 
     For Merge Sort, $T(n) = 2T(n/2) + cn$:
 
     1.  **Root:** The root of the tree represents the initial call with input size $n$. The work done at this level (merging) is $cn$. It has two children representing the two recursive calls on inputs of size $n/2$.
     2.  **Level 1:** There are two nodes, each with an input size of $n/2$. The work at each node is $c(n/2)$. The total work at this level is $2 \\cdot c(n/2) = cn$.
     3.  **Level 2:** There are four nodes, each with an input size of $n/4$. The total work at this level is $4 \\cdot c(n/4) = cn$.
-    4.  **Pattern:** The work done at each level of the tree is consistently $cn$.[47, 48]
+    4.  **Pattern:** The work done at each level of the tree is consistently $cn$.
     5.  **Tree Height:** The recursion stops when the input size is 1. This happens after $\\log\_2 n$ levels.
     6.  **Total Cost:** We sum the work across all levels: Total Cost = (Work per level) $\\times$ (Number of levels) = $cn \\times \\log\_2 n$.
-        Therefore, the time complexity is $O(n \\log n)$.[49]
+        Therefore, the time complexity is $O(n \\log n)$.
 
   * **Solving Recurrences: The Master Theorem**
-    The Master Theorem provides a "cookbook" method for solving a specific class of recurrence relations that arise from divide-and-conquer algorithms: $T(n) = aT(n/b) + f(n)$, where $a \\ge 1$ and $b \> 1$.[44, 50]
+    The Master Theorem provides a "cookbook" method for solving a specific class of recurrence relations that arise from divide-and-conquer algorithms: $T(n) = aT(n/b) + f(n)$, where $a \\ge 1$ and $b \> 1$.
 
       * $a$: The number of subproblems in the recursion.
       * $n/b$: The size of each subproblem.
@@ -195,31 +195,31 @@ Recognizing common algorithmic patterns and knowing the performance characterist
 
 ### 3.1 Time Complexity of Algorithmic Patterns
 
-Many coding problems are variations of established patterns. Identifying the underlying pattern can provide a strong hint about the expected and optimal time complexity, serving as a powerful mental template during problem-solving.[8, 51, 52]
+Many coding problems are variations of established patterns. Identifying the underlying pattern can provide a strong hint about the expected and optimal time complexity, serving as a powerful mental template during problem-solving.
 
 | Algorithmic Pattern | Typical Time Complexity | Key Characteristic |
 | :--- | :--- | :--- |
-| **Two Pointers** | $O(n)$ | Two pointers traverse an array, often from opposite ends or in the same direction, processing elements in a single pass.[53, 54] |
-| **Sliding Window** | $O(n)$ | A "window" (sub-array or sub-string) of variable or fixed size slides over the data. Each element is visited by the window's start and end pointers at most once.[55, 56, 57] |
-| **Binary Search** | $O(\\log n)$ | Repeatedly divides a **sorted** search space in half to find a target value.[58, 59, 60] |
-| **Divide and Conquer** | $O(n \\log n)$ or others | The problem is broken into smaller, independent subproblems, which are solved recursively and their results combined. Complexity is determined by the recurrence relation.[61, 62, 63] |
-| **Backtracking** | $O(k^n)$ or $O(n\!)$ | Explores all possible solutions by building candidates incrementally and abandoning a path ("backtracking") if it cannot lead to a valid solution. Often involves permutations or subsets.[64, 65, 66] |
+| **Two Pointers** | $O(n)$ | Two pointers traverse an array, often from opposite ends or in the same direction, processing elements in a single pass. |
+| **Sliding Window** | $O(n)$ | A "window" (sub-array or sub-string) of variable or fixed size slides over the data. Each element is visited by the window's start and end pointers at most once. |
+| **Binary Search** | $O(\\log n)$ | Repeatedly divides a **sorted** search space in half to find a target value. |
+| **Divide and Conquer** | $O(n \\log n)$ or others | The problem is broken into smaller, independent subproblems, which are solved recursively and their results combined. Complexity is determined by the recurrence relation. |
+| **Backtracking** | $O(k^n)$ or $O(n\!)$ | Explores all possible solutions by building candidates incrementally and abandoning a path ("backtracking") if it cannot lead to a valid solution. Often involves permutations or subsets. |
 
 ### 3.2 Time Complexity of Core Data Structure Operations
 
-The choice of data structure is often the most critical factor in an algorithm's overall efficiency. A key consideration is the trade-off between average-case and worst-case performance guarantees.[67] A hash map, for instance, offers superior average-case speed but can degrade significantly in the worst case, whereas a balanced tree provides slower but more predictable performance.
+The choice of data structure is often the most critical factor in an algorithm's overall efficiency. A key consideration is the trade-off between average-case and worst-case performance guarantees. A hash map, for instance, offers superior average-case speed but can degrade significantly in the worst case, whereas a balanced tree provides slower but more predictable performance.
 
 | Data Structure | Operation | Average Case | Worst Case | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **Array** | Access (by index) | $O(1)$ | $O(1)$ | Direct memory address calculation.[68] |
-| | Search | $O(n)$ | $O(n)$ | Requires a linear scan of elements.[68] |
-| | Insertion | $O(n)$ | $O(n)$ | For dynamic arrays, append is $O(1)$ amortized. Insertion at the beginning/middle requires shifting elements ($O(n)$).[69] |
-| | Deletion | $O(n)$ | $O(n)$ | Deletion from the end is $O(1)$. Deletion from the beginning/middle requires shifting ($O(n)$).[69] |
-| **Hash Map** | Access/Search | $O(1)$ | $O(n)$ | The worst case occurs when all keys hash to the same bucket, degrading the structure to a linked list.[70, 71] |
+| **Array** | Access (by index) | $O(1)$ | $O(1)$ | Direct memory address calculation. |
+| | Search | $O(n)$ | $O(n)$ | Requires a linear scan of elements. |
+| | Insertion | $O(n)$ | $O(n)$ | For dynamic arrays, append is $O(1)$ amortized. Insertion at the beginning/middle requires shifting elements ($O(n)$). |
+| | Deletion | $O(n)$ | $O(n)$ | Deletion from the end is $O(1)$. Deletion from the beginning/middle requires shifting ($O(n)$). |
+| **Hash Map** | Access/Search | $O(1)$ | $O(n)$ | The worst case occurs when all keys hash to the same bucket, degrading the structure to a linked list. |
 | | Insertion | $O(1)$ | $O(n)$ | |
 | | Deletion | $O(1)$ | $O(n)$ | |
-| **Binary Search Tree (Unbalanced)** | Search/Insert/Delete | $O(\\log n)$ | $O(n)$ | The worst case happens when the tree becomes skewed (e.g., inserting elements in sorted order), resembling a linked list.[72, 73, 74] |
-| **Balanced BST (AVL, Red-Black)** | Search/Insert/Delete | $O(\\log n)$ | $O(\\log n)$ | Self-balancing mechanisms (rotations, recoloring) guarantee that the tree's height remains logarithmic with respect to the number of nodes.[75, 76, 77] |
+| **Binary Search Tree (Unbalanced)** | Search/Insert/Delete | $O(\\log n)$ | $O(n)$ | The worst case happens when the tree becomes skewed (e.g., inserting elements in sorted order), resembling a linked list. |
+| **Balanced BST (AVL, Red-Black)** | Search/Insert/Delete | $O(\\log n)$ | $O(\\log n)$ | Self-balancing mechanisms (rotations, recoloring) guarantee that the tree's height remains logarithmic with respect to the number of nodes. |
 
 ## Section 4: Navigating Advanced and Tricky Scenarios
 
@@ -227,7 +227,7 @@ A deeper understanding of complexity requires looking beyond the basics to handl
 
 ### 4.1 Worst, Average, Best, and Amortized Analysis
 
-While Big O notation formally describes the worst-case upper bound, a complete analysis considers different scenarios based on the input data's properties.[14, 67, 78]
+While Big O notation formally describes the worst-case upper bound, a complete analysis considers different scenarios based on the input data's properties.
 
   * **Best Case ($\\Omega$):** The most favorable input. For Insertion Sort, the best case is a pre-sorted array, resulting in $O(n)$ complexity.
 
