@@ -23,16 +23,16 @@ To formally describe the relationship between an algorithm's operation count and
   * **Big Theta ($\\Theta$): The Tight Bound (Average Case)**
     Big Theta is used when an algorithm's runtime is bounded both from above and below by the same function. It provides a tight bound, often representing the **average-case** or expected performance.
 
-While these distinctions are academically important, in practical settings like coding interviews, the term "Big O" is often used colloquially to refer to the tight bound (Theta) of an algorithm's typical or average-case performance. For example, Quicksort has a strict worst-case time complexity of $O(n^2)$, but this scenario is rare in practice. Its average-case performance is $\\Theta(n \\log n)$, and it is almost universally referred to as an "$O(n \\log n)$" algorithm. This guide will follow this common convention, using $O$ notation to describe the tightest, most practical bound for an algorithm.
+While these distinctions are academically important, in practical settings like coding interviews, the term "Big O" is often used colloquially to refer to the tight bound (Theta) of an algorithm's typical or average-case performance. For example, Quicksort has a strict worst-case time complexity of $O(n^2)$, but this scenario is rare in practice. Its average-case performance is $\\Theta(n \\log n)$, and it is almost universally referred to as an $"O(n \\log n)"$ algorithm. This guide will follow this common convention, using $O$ notation to describe the tightest, most practical bound for an algorithm.
 
 ### 1.3 A Tour of Common Complexity Classes
 
 Algorithms are categorized into classes based on their Big O complexity. Understanding these classes is fundamental to analyzing code.
 
   * **$O(1)$ - Constant Time**
-    An algorithm runs in constant time if its execution time is independent of the input size. The number of operations remains the same whether the input has 10 elements or 10 million.[3, 15]
+    An algorithm runs in constant time if its execution time is independent of the input size. The number of operations remains the same whether the input has 10 elements or 10 million.
 
-      * **Examples:** Accessing an element in an array by its index (`arr[i]`), pushing or popping from a stack, or performing a simple arithmetic calculation.[5, 16, 17] In a hash map, insertion and lookup operations have an average-case time complexity of $O(1)$.[17]
+      * **Examples:** Accessing an element in an array by its index (`arr[i]`), pushing or popping from a stack, or performing a simple arithmetic calculation.[5, 16, 17] In a hash map, insertion and lookup operations have an average-case time complexity of $O(1)$.
         ```java
         // Accessing an element by index is O(1)
         int getFirstElement(int array) {
